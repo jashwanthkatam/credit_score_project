@@ -1,170 +1,100 @@
+💳 Credit Score Classification Project:
 
-##  Credit Score Classification
 
-A brief description of what this project does and who it's for
+📊 Overview
 
-You are working as a data scientist in a
-global finance company. Over the
-years, the company has collected basic
-bank details and gathered a lot of
-credit-related information. The
-management wants to build an
-intelligent system to segregate the
-people into credit score brackets to
-reduce the manual efforts. Given a
-person’s credit-related information,
-build a machine learning model that
-can classify the credit score.
-## Dataset
-dataset link: (https://www.kaggle.com/datasets/parisrohan/credit-score-classification)
+Welcome! This project demonstrates how to build an intelligent credit score classification system for a global finance company.
 
-About this Dataset
-This dataset contains information about a sample of over 100 people across the world. Credit score dataset contains 1 lac records with 28 features. The data includes the following information:
-![image](https://github.com/user-attachments/assets/a91684a4-796e-4d8d-b079-d4589b09c1d3)
+Imagine you’re a data scientist at a large financial institution — 
+you’ve got access to extensive customer bank details and credit-related data. The goal? 
+➡️ Reduce manual work by automatically classifying customers into credit score brackets, enabling faster decisions and better risk management.
 
 
-## Importing python libraries
+🗂️ Dataset
 
+📌 Source: Kaggle Credit Score Dataset
 
-We start off this project by importing all the necessary
-libraries that will be required for the process.
+Records: 100,000 entries across 28 features.
 
-![image](https://github.com/user-attachments/assets/1a0b5441-95e7-4968-82ed-7510f96a893a)
+Features Include:
 
-->Import Libraries(pandas, numpay, matplotlib, seaborn)
+Unique IDs for customers and transactions
 
-->Loading the Dataset
+Credit scores
 
-->Handling the missing values
-  
-  ![image](https://github.com/user-attachments/assets/8dec8da6-fd90-4876-8a30-a86b57adb318)
+Bank details
 
-  ![image](https://github.com/user-attachments/assets/8dcd97c0-3cd7-47b8-bf6c-830115807a19)
+Demographic information
 
+![image](https://github.com/user-attachments/assets/d24ad6c9-3a61-4d93-98f5-557ec1d6c438)
 
-## Data Cleaning
 
+⚙️ Steps & Methodology
 
-Replacing the special
-characters with empty
-string or with null
-values according to
-the data and
-converting it into int
-or float datatype. Also,
-Converting the
-categorical values of
-some columns into
-integer values.
 
-![image](https://github.com/user-attachments/assets/93e79c8f-5b18-45d9-8cca-f56f44266530)
+1️⃣ Import Libraries
+Essential libraries like pandas, numpy, matplotlib, and seaborn were imported to handle data and visualization tasks.
 
-![image](https://github.com/user-attachments/assets/48ebdf2f-f6ce-4346-bf77-18b83e714fbc)
 
-After replacing the
-special characters with
-null value. The new
-missing value is shown
-in the figure. Here
-Forward and backward
-filling method is used
-to fill the missing
-values.
+2️⃣ Data Cleaning 🧹
+Removed special characters and replaced them with NaN values where appropriate.
 
-![image](https://github.com/user-attachments/assets/34be9949-d8d4-4564-aefa-0c7124771240)
+Converted string fields to numeric types (int or float).
 
-![image](https://github.com/user-attachments/assets/747db467-1175-41a8-9190-9709f952a692)
+Filled missing values using forward-fill and backward-fill methods.
 
-![image](https://github.com/user-attachments/assets/f023b703-1730-4e2e-b459-131f79fc055b)
+Removed outliers (e.g., for age) to maintain data integrity.
 
+Applied One Hot Encoding to categorical variables.
 
+![image](https://github.com/user-attachments/assets/301398bd-c8f9-42b2-995d-95363b886da5)
 
-Removing outliers
-from age since all
-other columns
-values are
-relevant.
 
-![image](https://github.com/user-attachments/assets/00c957cf-9071-4553-a602-681afe254310)
+3️⃣ Feature Selection 🔍
+✅ Used Variance Inflation Factor (VIF) to check for multicollinearity — ensuring VIF < 5 for selected features.
+✅ Retained all relevant features based on these checks.
 
-![image](https://github.com/user-attachments/assets/ae7ed8e5-5d0e-4d2a-b4e1-d069aa08ffae)
+![image](https://github.com/user-attachments/assets/15faf05d-0d20-4310-8d9e-87ac8992b73d)
 
-![image](https://github.com/user-attachments/assets/a539e05a-4481-44cb-b2f0-69176d19d4ea)
 
-![image](https://github.com/user-attachments/assets/c819b305-8f29-44e0-b6e1-d7f043fc2971)
+4️⃣ Model Building & Evaluation 🤖
 
+Model	Accuracy
+Logistic Regression	61.8%
+Decision Tree	69.7%
+Decision Tree (Hyperparameter Tuned)	70.9%
+Random Forest	79.7%
 
-Performing One Hot Encoding for categorical features of a dataframe
+![image](https://github.com/user-attachments/assets/ec7134bb-3298-4e87-83c5-2ca51e33e055)
 
-![image](https://github.com/user-attachments/assets/94816942-2629-432c-acc1-21983bd36110)
 
-![image](https://github.com/user-attachments/assets/2c870e74-a7f4-4756-8dd4-c801facad1d9)
+Techniques Used:
 
+Logistic Regression: Baseline model for binary classification.
 
-## Feature Selection 
+Decision Tree: Improved interpretability with decent performance.
 
-->VIF(Variance Inflation Factor)
+GridSearchCV: Hyperparameter tuning for optimal Decision Tree performance.
 
-Selecting the features using VIF. VIF should be less
-than 5. Here, all features have VIF value less than
-5, So we will select all the features. 
+Random Forest: Achieved the highest accuracy, leveraging ensemble learning.
 
-![image](https://github.com/user-attachments/assets/c5ecc853-c711-42a4-9b52-7741bc6f87b0)
 
-![image](https://github.com/user-attachments/assets/63c17eb4-19d0-4366-acec-161a96839ca0)
 
+📈 Key Learnings
 
-->Logistic Regression
 
-The accuracy of the logistic regression model is
-61.8 percentage.
+✅ Data cleaning and proper handling of missing values greatly improved model performance.
+✅ Feature selection using VIF helped avoid multicollinearity.
+✅ Ensemble methods like Random Forest provided significant accuracy improvements compared to single classifiers.
 
-![image](https://github.com/user-attachments/assets/77fc9814-9bdf-4786-8b20-b9d191dc80ea)
+🚀 Future Improvements
+✨ Test other advanced ensemble techniques like XGBoost or LightGBM.
+✨ Deploy the model as an API for real-time credit score classification.
+✨ Implement feature importance analysis to explain predictions to stakeholders.
 
-![image](https://github.com/user-attachments/assets/7019b4bb-2c11-43d5-abe9-8116b3e4bf9f)
+🙌 Credits
+Dataset by link: (https://www.kaggle.com/datasets/parisrohan/credit-score-classification)
+Developed by Jashwanth Katam
 
-![image](https://github.com/user-attachments/assets/91b72b7d-059e-4e20-9694-c3b29b9f8731)
-
-
-->Decision Tree
-
-The accuracy of the decision tree model is
-69.7 percentage.
-
-![image](https://github.com/user-attachments/assets/0f2fb887-8f85-4b6a-9f93-2f335f411565)
-
-![image](https://github.com/user-attachments/assets/3c6462a5-741e-4b23-ac00-3775b5fb7bb0)
-
-![image](https://github.com/user-attachments/assets/b6972371-2e45-4173-9351-e7c54c1beadf)
-
-
-->Hyperparameter Tuning on Decision Tree
-
-Here, We are using
-GridSearch CV technique
-which is used to identify the optimal
-hyperparameters for a model and the
-accuracy obtained from Decision
-Tree is 70.93.
-
-![image](https://github.com/user-attachments/assets/938f8646-b910-4cbc-84a5-d064b18988c6)
-
-![image](https://github.com/user-attachments/assets/6a6e7a89-5d5a-45a2-a0a6-0c29af073ae2)
-
-
-->Random Forest
-
-The accuracy of the random forest model is
-79.7 percentage.
-
-![image](https://github.com/user-attachments/assets/84f4353d-8ed7-42de-87ba-d5f0bbec7645)
-
-![image](https://github.com/user-attachments/assets/127c95eb-25e4-4885-abbf-e24b0d1f18fb)
-
-![image](https://github.com/user-attachments/assets/b6160cfc-9ba7-461f-b4c1-104d05b22438)
-
-
-
-
-
-
+Feel free to ⭐ this repo if you found it helpful!
+Pull requests and suggestions are always welcome. 🤝
